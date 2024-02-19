@@ -33,28 +33,28 @@ Example:
 
 ```yaml
 services:
-	web-fe:
-		build: .
-		command: python app.py
-		ports:
-			- target: 8080
-			  published: 5001
-		networks:
-			- counter-net
-		volumes:
-			- type: volume
-			  source: counter-vol
-			  target: /app
-	redis:
-		image: "redis:alpine"
-		networks:
-			counter-net:
+  web-fe:
+    build: .
+    command: python app.py
+    ports:
+      - target: 8080
+        published: 5001
+    networks:
+      - counter-net
+    volumes:
+      - type: volume
+        source: counter-vol
+        target: /app
+  redis:
+    image: "redis:alpine"
+    networks:
+      counter-net:
 
 networks:
-	counter-net:
+  counter-net:
 
 volumes:
-	counter-vol:
+  counter-vol:
 ```
 
 The file has 3 top-level keys:
